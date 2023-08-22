@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# oc-web-dev-p6
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Plateforme de location d’appartements entre particuliers.
 
 ## Available Scripts
 
