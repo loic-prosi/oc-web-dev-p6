@@ -1,5 +1,16 @@
+import Banner from "../../components/Banner";
+import mountain from "../../assets/images/mountain.png";
+
 const About = () => {
-  return <h1>About</h1>;
+  return (
+    <>
+      <Banner
+        context="about-page"
+        image={mountain}
+        imageAlt="Paysage de montagnes enneigées avec une forêt de sapins"
+      />
+    </>
+  );
 };
 
 export default About;
