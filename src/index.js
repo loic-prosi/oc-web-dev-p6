@@ -6,9 +6,11 @@ import "./index.sass";
 
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Housing from "./pages/Housing";
+import Rentals from "./pages/Rentals";
 import About from "./pages/About";
 import Error from "./pages/Error";
+
+import rentals from "./data/rentals.json";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -19,11 +21,14 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
+        loader: async () => {
+          return rentals;
+        }
       },
       {
-        path: "/housing",
-        element: <Housing />
+        path: "/rentals/:id",
+        element: <Rentals />
       },
       {
         path: "/about",
