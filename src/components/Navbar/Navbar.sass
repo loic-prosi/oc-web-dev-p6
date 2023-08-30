@@ -1,0 +1,27 @@
+.navbar
+  display: flex
+  justify-content: space-between
+  padding: 0 100px
+  @media (max-width: 768px)
+    padding: 0 30px
+  @media (max-width: 576px)
+    padding: 0 20px
+  &__logo
+    width: 210px
+    @media (max-width: 576px)
+      width: 145px
+  &__links
+    display: flex
+    gap: 57px
+    list-style: none
+    @media (max-width: 576px)
+      gap: 26px
+  &__link
+    text-decoration: none
+    font-size: 24px
+    color: $primary-color
+    @media (max-width: 576px)
+      font-size: 12px
+      text-transform: uppercase
+    &--active
+      text-decoration: underline
