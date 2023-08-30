@@ -1,5 +1,28 @@
+import { useLoaderData } from "react-router-dom";
+import Banner from "../../components/Banner";
+import Card from "../../components/Card";
+
 const Home = () => {
-  return <h1>Home</h1>;
+  const rentals = useLoaderData();
+
+  return (
+    <>
+      <Banner />
+      <section className="cards-container">
+        {rentals &&
+          rentals.map((rental) => {
+            return (
+              <Card
+                key={rental.id}
+                id={rental.id}
+                title={rental.title}
+                image={rental.cover}
+              />
+            );
+          })}
+      </section>
+    </>
+  );
 };
 
 export default Home;
