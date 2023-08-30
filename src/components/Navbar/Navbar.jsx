@@ -1,10 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.svg";
 
 const Navbar = () => {
   return (
     <header className="navbar">
-      <img className="navbar__logo" src={logo} alt="Kasa logo" />
+      <h1 className="navbar__title">
+        <Link to="/">
+          <img className="navbar__logo" src={logo} alt="Kasa" />
+        </Link>
+      </h1>
       <nav>
         <ul className="navbar__links">
           <li>
