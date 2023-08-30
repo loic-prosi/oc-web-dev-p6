@@ -10,6 +10,8 @@ import Rentals from "./pages/Rentals";
 import About from "./pages/About";
 import Error from "./pages/Error";
 
+import rentals from "./data/rentals.json";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -19,7 +21,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
+        loader: async () => {
+          return rentals;
+        }
       },
       {
         path: "/rentals/:id",
