@@ -3,6 +3,9 @@
   height: 223px
   @media (max-width: 576px)
     height: 111px
+  &--about-page
+    @media (max-width: 576px)
+      height: 223px
   &::before
     content: ""
     position: absolute
@@ -10,13 +13,14 @@
     height: 100%
     border-radius: 25px
     background-color: rgba(0, 0, 0, 0.3)
+    @media (max-width: 576px)
+      border-radius: 10px
   &__image
-    height: 223px
+    height: 100%
     width: 100%
     border-radius: 25px
     object-fit: cover
     @media (max-width: 576px)
-      height: 111px
       border-radius: 10px
   &__text-container
     display: flex
@@ -24,10 +28,9 @@
     align-items: center
     position: absolute
     top: 0
-    height: 223px
+    height: 100%
     width: 100%
     @media (max-width: 576px)
-      height: 111px
       border-radius: 10px
   &__text
     font-size: 48px

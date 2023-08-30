@@ -1,11 +1,9 @@
-import coast from "../../assets/images/coast.png";
-
-const Banner = () => {
+const Banner = ({ context, image, imageAlt, text }) => {
   return (
-    <header className="banner">
-      <img className="banner__image" src={coast} alt="Imagedd" />
+    <header className={context ? `banner banner--${context}` : "banner"}>
+      <img className="banner__image" src={image} alt={imageAlt} />
       <div className="banner__text-container">
-        <span className="banner__text">Chez vous, partout et ailleurs</span>
+        <span className="banner__text">{text}</span>
       </div>
     </header>
   );
