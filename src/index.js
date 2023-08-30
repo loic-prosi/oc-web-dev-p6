@@ -6,7 +6,7 @@ import "./index.sass";
 
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Housing from "./pages/Housing";
+import Rentals from "./pages/Rentals";
 import About from "./pages/About";
 import Error from "./pages/Error";
 
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/housing",
-        element: <Housing />
+        path: "/rentals/:id",
+        element: <Rentals />
       },
       {
         path: "/about",
