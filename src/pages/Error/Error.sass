@@ -1,0 +1,35 @@
+.error-page
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 100px
+  @media (max-width: 768px)
+    gap: 80px
+  @media (max-width: 576px)
+    gap: 60px
+  &__title
+    line-height: 210px
+    margin: 0
+    font-size: 288px
+    font-weight: 700
+    color: $primary-color
+    @media (max-width: 768px)
+      line-height: normal
+      font-size: 192px
+    @media (max-width: 576px)
+      font-size: 96px
+  &__subtitle
+    text-align: center
+    margin: 0
+    font-size: 36px
+    font-weight: 500
+    color: $primary-color
+    @media (max-width: 768px)
+      font-size: 24px
+    @media (max-width: 576px)
+      font-size: 18px
+  &__return-link
+    font-size: 18px
+    color: $primary-color
+    @media (max-width: 576px)
+      font-size: 14px
