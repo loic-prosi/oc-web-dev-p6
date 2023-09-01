@@ -13,7 +13,7 @@ const Home = () => {
         imageAlt="Paysage côtier avec des rochers et une petite plage"
         text="Chez vous, partout et ailleurs"
       />
-      <section className="cards-container">
+      <section className="cards">
         {rentals &&
           rentals.map((rental) => {
             return (
