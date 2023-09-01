@@ -1,0 +1,40 @@
+.collapse
+  position: relative
+  min-height: 54px
+  &:not(:last-child)
+    margin-bottom: 30px
+  &__button
+    position: absolute
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    height: 54px
+    padding: 10px 20px
+    border: none
+    border-radius: 5px
+    background-color: $primary-color
+    cursor: pointer
+    z-index: 1
+  &__title
+    font-size: 24px
+    color: white
+  &__icon
+    transform-origin: center
+    transition: transform 400ms ease
+    &--active
+      transform: rotate(-180deg)
+  &__content
+    margin: 0
+    border-radius: 5px
+    background-color: #F6F6F6
+    font-size: 0px
+    font-weight: 400
+    color: $primary-color
+    transform: scaleY(0)
+    transform-origin: top
+    transition: all 300ms ease
+    &--active
+      transform: scaleY(1)
+      padding: 70px 20px 20px 20px
+      font-size: 18px
