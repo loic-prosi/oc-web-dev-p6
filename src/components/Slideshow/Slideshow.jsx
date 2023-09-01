@@ -28,7 +28,7 @@ const Slideshow = ({ pictures, title }) => {
       <header className="slideshow">
         <img
           className="slideshow__image"
-          src={pictures && pictures[currentImage]}
+          src={pictures[currentImage]}
           alt={title}
         />
         {pictures.length > 1 && (
@@ -44,7 +44,7 @@ const Slideshow = ({ pictures, title }) => {
               />
             </button>
             <span className="slideshow__pagination">{`${currentImage + 1}/${
-              pictures && pictures.length
+              pictures.length
             }`}</span>
             <button
               className="slideshow__button slideshow__button--next"
