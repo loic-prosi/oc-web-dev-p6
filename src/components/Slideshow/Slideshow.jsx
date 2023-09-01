@@ -7,7 +7,7 @@ const Slideshow = ({ pictures, title }) => {
 
   const prevImage = () => {
     const noMorePictures = currentImage - 1 < 0;
-    if (pictures && noMorePictures) {
+    if (noMorePictures) {
       setCurrentImage(pictures.length - 1);
     } else {
       setCurrentImage(currentImage - 1);
@@ -16,7 +16,7 @@ const Slideshow = ({ pictures, title }) => {
 
   const nextImage = () => {
     const noMorePictures = currentImage + 1 > pictures.length - 1;
-    if (pictures && noMorePictures) {
+    if (noMorePictures) {
       setCurrentImage(0);
     } else {
       setCurrentImage(currentImage + 1);
