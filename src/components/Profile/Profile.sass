@@ -1,0 +1,31 @@
+.profile
+  display: flex
+  align-items: center
+  margin-left: auto
+  &__name
+    width: 93px
+    margin-right: 10px
+    text-align: right
+    font-size: 18px
+    color: $primary-color
+    float: right
+    @media (max-width: 576px)
+      font-size: 12px
+  &__picture
+    width: 64px
+    height: 64px
+    border-radius: 32px
+    object-fit: cover
+    @media (max-width: 768px)
+      width: 32px
+      height: 32px
+      border-radius: 16px
+  &__picture-placeholder
+    width: 64px
+    height: 64px
+    border-radius: 32px
+    background-color: #C4C4C4
+    @media (max-width: 768px)
+      width: 32px
+      height: 32px
+      border-radius: 16px
