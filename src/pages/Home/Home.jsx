@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import coast from "../../assets/images/coast.png";
@@ -15,15 +15,25 @@ const Home = () => {
       />
       <section className="cards">
         {rentals &&
-          rentals.map((rental) => {
-            return (
-              <Card
-                key={rental.id}
-                id={rental.id}
-                title={rental.title}
-                image={rental.cover}
-              />
-            );
+          rentals.map((rental, index) => {
+            if (rental) {
+              return (
+                <Link
+                  key={rental.id}
+                  className="card"
+                  to={`/rentals/${rental.id}`}
+                  state={rental}
+                >
+                  <Card
+                    id={rental.id}
+                    title={rental.title}
+                    cover={rental.cover}
+                  />
+                </Link>
+              );
+            } else {
+              return <Card key={index} />;
+            }
           })}
       </section>
     </>

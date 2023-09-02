@@ -13,14 +13,16 @@ const Layout = () => {
 
   return (
     <div className="layout">
-      <Navbar />
-      <main
-        className={`page ${
-          isAbout ? "page--about" : isError ? "page--error" : ""
-        }`}
-      >
-        <Outlet />
-      </main>
+      <div className="layout__container">
+        <Navbar />
+        <main
+          className={`page ${
+            isAbout ? "page--about" : isError ? "page--error" : ""
+          }`}
+        >
+          <Outlet />
+        </main>
+      </div>
       <Footer />
     </div>
   );
