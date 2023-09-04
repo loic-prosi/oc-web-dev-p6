@@ -22,7 +22,6 @@ const Home = () => {
                   key={rental.id}
                   className="card"
                   to={`/rentals/${rental.id}`}
-                  state={rental}
                 >
                   <Card
                     id={rental.id}

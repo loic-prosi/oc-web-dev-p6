@@ -1,19 +1,44 @@
-import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Slideshow from "../../components/Slideshow";
 import Collapse from "../../components/Collapse";
 import Profile from "../../components/Profile";
 import Rating from "../../components/Rating";
 
+import rentals from "../../data/rentals.json";
+
 const Rentals = () => {
-  const location = useLocation();
-  const rental = location && location.state && location.state;
+  const { id } = useParams();
+  const [rental, setRental] = useState(null);
+  const navigate = useNavigate();
 
   const renderSlideshow =
     rental && rental.pictures && Array.isArray(rental.pictures);
+  const renderTitle = rental && rental.title && rental.title.length > 0;
+  const renderLocation =
+    rental && rental.location && rental.location.length > 0;
   const renderTags = rental && rental.tags && Array.isArray(rental.tags);
   const renderProfile =
     rental && rental.host && (rental.host.name || rental.host.picture);
   const renderRating = rental && rental.rating && rental.rating.length > 0;
+  const renderDescription =
+    rental && rental.description && rental.description.length > 0;
+  const renderEquipments =
+    rental && rental.equipments && rental.equipments.length > 0;
+
+  useEffect(() => {
+    if (id) {
+      const rental = rentals.find((rental) => rental.id === id);
+      if (rental) {
+        setRental(rental);
+      } else {
+        navigate("/error");
+      }
+    } else {
+      navigate("/error");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -23,8 +48,10 @@ const Rentals = () => {
       <div className="rental">
         <div className="rental__container">
           <div className="rental__heading">
-            <h2 className="rental__title">{rental.title}</h2>
-            <p className="rental__location">{rental.location}</p>
+            {renderTitle && <h2 className="rental__title">{rental.title}</h2>}
+            {renderLocation && (
+              <p className="rental__location">{rental.location}</p>
+            )}
             <div className="rental__tags">
               {renderTags &&
                 rental.tags.map((tag, index) => {
@@ -44,16 +71,20 @@ const Rentals = () => {
           </div>
         </div>
         <div className="rental__collapses">
-          <Collapse
-            size="medium"
-            title="Description"
-            content={rental.description}
-          />
-          <Collapse
-            size="medium"
-            title="Équipements"
-            content={rental.equipments}
-          />
+          {renderDescription && (
+            <Collapse
+              size="medium"
+              title="Description"
+              content={rental.description}
+            />
+          )}
+          {renderEquipments && (
+            <Collapse
+              size="medium"
+              title="Équipements"
+              content={rental.equipments}
+            />
+          )}
         </div>
       </div>
     </>

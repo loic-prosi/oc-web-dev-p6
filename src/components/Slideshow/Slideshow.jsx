@@ -29,7 +29,7 @@ const Slideshow = ({ pictures, title }) => {
         <img
           className="slideshow__image"
           src={pictures[currentImage]}
-          alt={title}
+          alt={title ? title : ""}
         />
         {pictures.length > 1 && (
           <div className="slideshow__navigation">
