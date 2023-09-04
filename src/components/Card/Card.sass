@@ -3,6 +3,12 @@
   height: 340px
   width: 340px
   flex-grow: 1
+  border-radius: 10px
+  overflow: hidden
+  &:hover &__cover
+    transform: scale(1.1)
+  &:hover::before
+    opacity: 0
   @media (max-width: 768px)
     width: 100%
   &::before
@@ -12,11 +18,14 @@
     height: 100%
     border-radius: 10px
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent)
+    transition: all 750ms ease
+    z-index: 1
   &__cover
     height: 100%
     width: 100%
     border-radius: 10px
     object-fit: cover
+    transition: all 750ms ease
   &__cover-placeholder
     height: 100%
     width: 100%
@@ -29,6 +38,7 @@
     top: 0
     height: 100%
     width: 100%
+    z-index: 1
   &__title
     font-size: 18px
     margin: 16px
