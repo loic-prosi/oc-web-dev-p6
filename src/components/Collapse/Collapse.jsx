@@ -5,13 +5,18 @@ const Collapse = ({ size, title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [contentText, setContentText] = useState("");
 
+  const contentFormat = (content) => {
+    let newContent = "";
+    content.forEach((contentElement) => {
+      newContent = newContent + contentElement + "\n";
+    });
+    return newContent;
+  };
+
   useEffect(() => {
     if (Array.isArray(content)) {
-      let contentText = "";
-      content.forEach((element) => {
-        contentText = contentText + element + "\n";
-      });
-      setContentText(contentText);
+      const contentFormatted = contentFormat(content);
+      setContentText(contentFormatted);
     } else {
       setContentText(content);
     }
