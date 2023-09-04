@@ -8,9 +8,15 @@ const Rating = ({ rating }) => {
     <div className="rating">
       {ratingScale.map((scaleNumber) => {
         return rating >= scaleNumber ? (
-          <img className="rating__star" src={starActive} alt="Étoile active" />
+          <img
+            key={scaleNumber}
+            className="rating__star"
+            src={starActive}
+            alt="Étoile active"
+          />
         ) : (
           <img
+            key={scaleNumber}
             className="rating__star"
             src={starInactive}
             alt="Étoile inactive"
