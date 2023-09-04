@@ -1,20 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/images/arrow.svg";
 
-const Collapse = ({ title, content }) => {
+const Collapse = ({ size, title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [contentText, setContentText] = useState("");
+
+  const contentFormat = (content) => {
+    let newContent = "";
+    content.forEach((contentElement) => {
+      newContent = newContent + contentElement + "\n";
+    });
+    return newContent;
+  };
+
+  useEffect(() => {
+    if (Array.isArray(content)) {
+      const contentFormatted = contentFormat(content);
+      setContentText(contentFormatted);
+    } else {
+      setContentText(content);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <article className="collapse">
-      <button className="collapse__button" onClick={toggleCollapse}>
-        <span className="collapse__title">{title}</span>
+    <article className={`collapse-${size}`}>
+      <button className={`collapse-${size}__button`} onClick={toggleCollapse}>
+        <span className={`collapse-${size}__title`}>{title}</span>
         <img
           className={
-            isOpen ? "collapse__icon collapse__icon--active" : "collapse__icon"
+            isOpen
+              ? `collapse-${size}__icon collapse-${size}__icon--active`
+              : `collapse-${size}__icon`
           }
           src={arrowIcon}
           alt={isOpen ? "Flèche vers le bas" : "Flèche vers le haut"}
@@ -23,11 +44,11 @@ const Collapse = ({ title, content }) => {
       <p
         className={
           isOpen
-            ? "collapse__content collapse__content--active"
-            : "collapse__content"
+            ? `collapse-${size}__content collapse-${size}__content--active`
+            : `collapse-${size}__content`
         }
       >
-        {content}
+        {contentText}
       </p>
     </article>
   );

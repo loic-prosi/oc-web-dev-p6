@@ -1,0 +1,16 @@
+.rating
+  display: flex
+  align-items: center
+  width: 196px
+  margin-top: 25px
+  @media (max-width: 768px)
+    width: 100%
+    margin-top: 0
+  &__star
+    width: 36px
+    height: 36px
+    &:not(:last-child)
+      margin-right: 3px
+    @media (max-width: 576px)
+      width: 18px
+      height: 18px

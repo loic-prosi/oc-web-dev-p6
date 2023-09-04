@@ -1,40 +1,107 @@
-.collapse
+@mixin collapse
   position: relative
-  min-height: 54px
+  @media (max-width: 576px)
+    min-height: 30px
   &:not(:last-child)
     margin-bottom: 30px
+    @media (max-width: 576px)
+      margin-bottom: 20px
+
+@mixin collapse__button
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 100%
+  border: none
+  background-color: $primary-color
+  cursor: pointer
+  z-index: 1
+  @media (max-width: 576px)
+    height: 30px
+    padding: 10px
+    border-radius: 5px
+
+@mixin collapse__title
+  color: white
+  @media (max-width: 576px)
+    font-size: 13px
+
+@mixin collapse__icon
+  transform-origin: center
+  transition: transform 400ms ease
+  @media (max-width: 576px)
+    width: 20px
+    height: 20px
+
+@mixin collapse__icon--active
+  transform: rotate(-180deg)
+
+@mixin collapse__content
+  margin: 0
+  background-color: #F6F6F6
+  font-size: 0px
+  font-weight: 400
+  white-space: pre-line
+  color: $primary-color
+  transform: scaleY(0)
+  transform-origin: top
+  transition: all 300ms ease
+  @media (max-width: 576px)
+    border-radius: 5px
+
+@mixin collapse__content--active
+  transform: scaleY(1)
+  padding: 70px 20px 20px 20px
+  font-size: 18px
+  @media (max-width: 576px)
+    padding: 40px 20px 10px 20px
+    font-size: 12px
+
+.collapse-large
+  @include collapse
+  min-height: 54px
   &__button
-    position: absolute
-    display: flex
-    align-items: center
-    justify-content: space-between
-    width: 100%
+    @include collapse__button
     height: 54px
     padding: 10px 20px
-    border: none
     border-radius: 5px
-    background-color: $primary-color
-    cursor: pointer
-    z-index: 1
   &__title
+    @include collapse__title
     font-size: 24px
-    color: white
   &__icon
-    transform-origin: center
-    transition: transform 400ms ease
+    @include collapse__icon
     &--active
-      transform: rotate(-180deg)
+      @include collapse__icon--active
   &__content
-    margin: 0
+    @include collapse__content
     border-radius: 5px
-    background-color: #F6F6F6
-    font-size: 0px
-    font-weight: 400
-    color: $primary-color
-    transform: scaleY(0)
-    transform-origin: top
-    transition: all 300ms ease
     &--active
-      transform: scaleY(1)
-      padding: 70px 20px 20px 20px
-      font-size: 18px
+      @include collapse__content--active
+
+.collapse-medium
+  @include collapse
+  min-height: 52px
+  width: 45%
+  flex-grow: 1
+  @media (max-width: 768px)
+    width: 100%
+  &__button
+    @include collapse__button
+    height: 52px
+    padding: 10px 20px
+    border-radius: 10px
+  &__title
+    @include collapse__title
+    font-size: 18px
+  &__icon
+    @include collapse__icon
+    width: 25px
+    height: 25px
+    &--active
+      @include collapse__icon--active
+  &__content
+    @include collapse__content
+    border-radius: 10px
+    &--active
+      @include collapse__content--active
