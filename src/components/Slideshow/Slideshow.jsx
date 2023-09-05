@@ -5,6 +5,9 @@ import arrowNext from "../../assets/images/arrow-next.svg";
 const Slideshow = ({ pictures, title }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
+  const renderSlideshow = pictures && pictures.length > 0;
+  const renderSlideshowNavigation = pictures && pictures.length > 1;
+
   const prevImage = () => {
     const noMorePictures = currentImage - 1 < 0;
     if (noMorePictures) {
@@ -23,15 +26,22 @@ const Slideshow = ({ pictures, title }) => {
     }
   };
 
-  if (pictures && pictures.length > 0) {
+  if (renderSlideshow) {
     return (
       <header className="slideshow">
-        <img
-          className="slideshow__image"
-          src={pictures[currentImage]}
-          alt={title ? title : ""}
-        />
-        {pictures.length > 1 && (
+        {pictures.map((picture, index) => {
+          return (
+            <img
+              key={picture}
+              className={`slideshow__image ${
+                index === currentImage && "slideshow__image--active"
+              }`}
+              src={picture}
+              alt={title ? title : ""}
+            />
+          );
+        })}
+        {renderSlideshowNavigation && (
           <div className="slideshow__navigation">
             <button
               className="slideshow__button slideshow__button--prev"
