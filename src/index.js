@@ -4,43 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.sass";
 
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Rentals from "./pages/Rentals";
-import About from "./pages/About";
-import Error from "./pages/Error";
+import routesConfig from "./routesConfig";
 
-import rentals from "./data/rentals.json";
+const router = createBrowserRouter(routesConfig);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-        loader: async () => {
-          return rentals;
-        }
-      },
-      {
-        path: "/rentals/:id",
-        element: <Rentals />
-      },
-      {
-        path: "/about",
-        element: <About />
-      },
-      {
-        path: "*",
-        element: <Error />
-      }
-    ]
-  }
-]);
 
 root.render(
   <React.StrictMode>
