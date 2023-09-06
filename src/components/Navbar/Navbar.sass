@@ -27,9 +27,11 @@
     &::after
       content: ""
       display: block
-      border: 1px solid $primary-color
+      border-top: 2px solid $primary-color
       transform: scale(0)
       transition: all 200ms ease
+      @media (max-width: 576px)
+        border-top: 1px solid $primary-color
     &:hover::after
       transform: scale(1)
     @media (max-width: 576px)
