@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useParams, useNavigate } from "react-router-dom";
 import Slideshow from "../../components/Slideshow";
 import Collapse from "../../components/Collapse";
 import Profile from "../../components/Profile";
 import Rating from "../../components/Rating";
 
-import rentals from "../../data/rentals.json";
-
 const Rentals = () => {
+  const rentals = useLoaderData();
   const { id } = useParams();
   const [rental, setRental] = useState(null);
   const navigate = useNavigate();

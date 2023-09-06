@@ -20,7 +20,10 @@ const routesConfig = [
       },
       {
         path: "/rentals/:id",
-        element: <Rentals />
+        element: <Rentals />,
+        loader: async () => {
+          return rentals;
+        }
       },
       {
         path: "/about",
