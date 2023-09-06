@@ -5,10 +5,12 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.sass";
 
 import routesConfig from "./routesConfig";
-
-const router = createBrowserRouter(routesConfig);
+import rentals from "./data/rentals.json";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const routes = routesConfig(rentals);
+const router = createBrowserRouter(routes);
 
 root.render(
   <React.StrictMode>

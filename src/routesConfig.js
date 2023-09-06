@@ -4,37 +4,37 @@ import Rentals from "./pages/Rentals";
 import About from "./pages/About";
 import Error from "./pages/Error";
 
-import rentals from "./data/rentals.json";
-
-const routesConfig = [
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-        loader: async () => {
-          return rentals;
+const routesConfig = (data) => {
+  return [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+          loader: async () => {
+            return data;
+          }
+        },
+        {
+          path: "/rentals/:id",
+          element: <Rentals />,
+          loader: async () => {
+            return data;
+          }
+        },
+        {
+          path: "/about",
+          element: <About />
+        },
+        {
+          path: "*",
+          element: <Error />
         }
-      },
-      {
-        path: "/rentals/:id",
-        element: <Rentals />,
-        loader: async () => {
-          return rentals;
-        }
-      },
-      {
-        path: "/about",
-        element: <About />
-      },
-      {
-        path: "*",
-        element: <Error />
-      }
-    ]
-  }
-];
+      ]
+    }
+  ];
+};
 
 export default routesConfig;
