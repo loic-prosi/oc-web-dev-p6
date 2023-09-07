@@ -4,7 +4,7 @@ import Rentals from "./pages/Rentals";
 import About from "./pages/About";
 import Error from "./pages/Error";
 
-const routesConfig = (data) => {
+const routesConfig = (rentals) => {
   return [
     {
       path: "/",
@@ -14,14 +14,21 @@ const routesConfig = (data) => {
           index: true,
           element: <Home />,
           loader: async () => {
-            return data;
+            return rentals;
           }
         },
         {
           path: "/rentals/:id",
           element: <Rentals />,
-          loader: async () => {
-            return data;
+          errorElement: <Error />,
+          loader: async ({ params }) => {
+            const { id } = params;
+            const rental = rentals.find((rental) => rental.id === id);
+            if (rental) {
+              return rental;
+            } else {
+              throw new Response("Rental not found", { status: 404 });
+            }
           }
         },
         {
