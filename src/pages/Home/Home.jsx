@@ -7,7 +7,7 @@ const Home = () => {
   const rentals = useLoaderData();
 
   return (
-    <>
+    <main className="page">
       <Banner
         image={coast}
         imageAlt="Paysage côtier avec des rochers et une petite plage"
@@ -30,7 +30,7 @@ const Home = () => {
             }
           })}
       </section>
-    </>
+    </main>
   );
 };
 

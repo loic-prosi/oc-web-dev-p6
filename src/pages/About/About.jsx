@@ -4,7 +4,7 @@ import mountain from "../../assets/images/mountain.png";
 
 const About = () => {
   return (
-    <>
+    <main className="page page--about">
       <Banner
         context="about-page"
         image={mountain}
@@ -32,7 +32,7 @@ const About = () => {
           content="La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."
         />
       </section>
-    </>
+    </main>
   );
 };
 

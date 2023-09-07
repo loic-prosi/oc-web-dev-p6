@@ -22,7 +22,7 @@ const Rentals = () => {
     rental && rental.equipments && rental.equipments.length > 0;
 
   return (
-    <>
+    <main className="page">
       {renderSlideshow && (
         <Slideshow pictures={rental.pictures} imageAlt={rental.title} />
       )}
@@ -68,7 +68,7 @@ const Rentals = () => {
           )}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 

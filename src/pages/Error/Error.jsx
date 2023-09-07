@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
-    <div className="error-page">
+    <main className="page page--error">
       <h2 className="error-page__title">404</h2>
       <h3 className="error-page__subtitle">
         Oups! La page que vous demandez n'existe pas.
@@ -10,7 +10,7 @@ const Error = () => {
       <Link className="error-page__return-link" to="/">
         Retourner sur la page d'accueil
       </Link>
-    </div>
+    </main>
   );
 };
 
