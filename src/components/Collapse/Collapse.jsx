@@ -29,8 +29,13 @@ const Collapse = ({ size, title, content }) => {
 
   return (
     <article className={`collapse-${size}`}>
-      <button className={`collapse-${size}__button`} onClick={toggleCollapse}>
-        <span className={`collapse-${size}__title`}>{title}</span>
+      <header className={`collapse-${size}__header`} onClick={toggleCollapse}>
+        {size === "large" && (
+          <h2 className={`collapse-${size}__title`}>{title}</h2>
+        )}
+        {size === "medium" && (
+          <h3 className={`collapse-${size}__title`}>{title}</h3>
+        )}
         <img
           className={
             isOpen
@@ -40,7 +45,7 @@ const Collapse = ({ size, title, content }) => {
           src={arrowIcon}
           alt={isOpen ? "Flèche vers le bas" : "Flèche vers le haut"}
         />
-      </button>
+      </header>
       <p
         className={
           isOpen
