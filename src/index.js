@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.sass";
 
-import routesConfig from "./routesConfig";
+import routesConfig from "./utils/routesConfig";
 import rentals from "./data/rentals.json";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

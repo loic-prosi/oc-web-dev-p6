@@ -1,8 +1,8 @@
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Rentals from "./pages/Rentals";
-import About from "./pages/About";
-import Error from "./pages/Error";
+import Layout from "../pages/Layout/Layout";
+import Home from "../pages/Home/Home";
+import Rentals from "../pages/Rentals/Rentals";
+import About from "../pages/About/About";
+import Error from "../pages/Error/Error";
 
 const routesConfig = (rentals) => {
   return [
