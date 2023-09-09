@@ -6,6 +6,8 @@ import coast from "../../assets/images/coast.png";
 const Home = () => {
   const rentals = useLoaderData();
 
+  const renderCardsList = rentals && rentals.length > 0;
+
   return (
     <main className="page">
       <Banner
@@ -13,23 +15,23 @@ const Home = () => {
         imageAlt="Paysage côtier avec des rochers et une petite plage"
         text="Chez vous, partout et ailleurs"
       />
-      <section className="cards">
-        {rentals &&
-          rentals.map((rental, index) => {
-            if (rental) {
-              return (
+      {renderCardsList && (
+        <section className="cards">
+          {rentals.map((rental) => {
+            return (
+              rental &&
+              rental.id && (
                 <Card
-                  key={rental.id + index}
+                  key={rental.id}
                   id={rental.id}
                   title={rental.title}
                   cover={rental.cover}
                 />
-              );
-            } else {
-              return <Card key={index} />;
-            }
+              )
+            );
           })}
-      </section>
+        </section>
+      )}
     </main>
   );
 };
