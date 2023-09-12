@@ -2,7 +2,7 @@ import { useState } from "react";
 import arrowPrev from "../../assets/images/arrow-prev.svg";
 import arrowNext from "../../assets/images/arrow-next.svg";
 
-const Slideshow = ({ pictures, title }) => {
+const Slideshow = ({ pictures, imageAlt }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const renderSlideshow = pictures && pictures.length > 0;
@@ -37,7 +37,7 @@ const Slideshow = ({ pictures, title }) => {
                 index === currentImage && "slideshow__image--active"
               }`}
               src={picture}
-              alt={title ? title : ""}
+              alt={imageAlt ? imageAlt : ""}
             />
           );
         })}
