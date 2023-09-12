@@ -6,7 +6,6 @@ const About = () => {
   return (
     <main className="page page--about">
       <Banner
-        context="about-page"
         image={mountain}
         imageAlt="Paysage de montagnes enneigées avec une forêt de sapins"
       />

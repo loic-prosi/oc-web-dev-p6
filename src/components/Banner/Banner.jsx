@@ -1,10 +1,12 @@
-const Banner = ({ context, image, imageAlt, text }) => {
+const Banner = ({ image, imageAlt, text }) => {
   return (
-    <header className={context ? `banner banner--${context}` : "banner"}>
+    <header className={`banner${text ? "" : " banner--no-text"}`}>
       <img className="banner__image" src={image} alt={imageAlt} />
-      <div className="banner__text-container">
-        <span className="banner__text">{text}</span>
-      </div>
+      {text && (
+        <div className="banner__text-container">
+          <span className="banner__text">{text}</span>
+        </div>
+      )}
     </header>
   );
 };
