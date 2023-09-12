@@ -67,7 +67,7 @@ describe("Error page", () => {
     const redirectLink = screen.getByRole("link", {
       name: "Retourner sur la page d'accueil"
     });
-    userEvent.click(redirectLink);
+    await userEvent.click(redirectLink);
     await waitFor(() => {
       const homePageBannerText = screen.getByText(
         "Chez vous, partout et ailleurs"

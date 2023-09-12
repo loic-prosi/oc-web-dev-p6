@@ -37,7 +37,7 @@ describe("Layout", () => {
     await waitFor(() => {
       accueilLink = screen.getByText("Accueil");
     });
-    userEvent.click(accueilLink);
+    await userEvent.click(accueilLink);
     await waitFor(() => {
       const homePageBanner = screen.getByRole("banner");
       const homePageBannerText = within(homePageBanner).getByText(
@@ -65,7 +65,7 @@ describe("Layout", () => {
         name: "A Propos"
       });
     });
-    userEvent.click(aboutLink);
+    await userEvent.click(aboutLink);
     await waitFor(() => {
       const aboutPageBannerImg = screen.getByRole("img", {
         name: "Paysage de montagnes enneigées avec une forêt de sapins"

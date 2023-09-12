@@ -118,22 +118,19 @@ describe("Rentals page", () => {
       {
         id: "1",
         title: "title1",
-        pictures: ["picture1", "picture2"]
+        pictures: ["picture1", "picture2", "picture3"]
       }
     ];
-    const user = userEvent.setup();
     renderPage("rentals", rentals);
     let nextImageButton;
     await waitFor(() => {
       nextImageButton = screen.getByRole("img", { name: "Suivant" });
     });
-    user.click(nextImageButton);
+    await userEvent.click(nextImageButton);
+    await userEvent.click(nextImageButton);
+    await userEvent.click(nextImageButton);
     await waitFor(() => {
-      screen.getByText("2/2");
-    });
-    user.click(nextImageButton);
-    await waitFor(() => {
-      const pagination = screen.getByText("1/2");
+      const pagination = screen.getByText("1/3");
       expect(pagination).toBeTruthy();
     });
   });
@@ -146,13 +143,12 @@ describe("Rentals page", () => {
         pictures: ["picture1", "picture2", "picture3"]
       }
     ];
-    const user = userEvent.setup();
     renderPage("rentals", rentals);
     let prevImageButton;
     await waitFor(() => {
       prevImageButton = screen.getByRole("img", { name: "Précédent" });
     });
-    user.click(prevImageButton);
+    await userEvent.click(prevImageButton);
     await waitFor(() => {
       const pagination = screen.getByText("3/3");
       expect(pagination).toBeTruthy();

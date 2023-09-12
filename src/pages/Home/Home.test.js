@@ -60,7 +60,7 @@ describe("Home page", () => {
       const page = screen.getByRole("main");
       card = within(page).getByRole("link");
     });
-    userEvent.click(card);
+    await userEvent.click(card);
     await waitFor(() => {
       const location = screen.getByText("location1");
       expect(location).toBeTruthy();
