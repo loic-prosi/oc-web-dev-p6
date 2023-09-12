@@ -13,7 +13,7 @@ const renderPage = (page, rentals) => {
       break;
     case "rentals":
       router = createMemoryRouter(routes, {
-        initialEntries: ["/rentals/:id"]
+        initialEntries: ["/rentals/1"]
       });
       break;
     case "about":
