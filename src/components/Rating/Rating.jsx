@@ -12,14 +12,14 @@ const Rating = ({ rating }) => {
             key={scaleNumber}
             className="rating__star"
             src={starActive}
-            alt="Étoile active"
+            alt="Active star"
           />
         ) : (
           <img
             key={scaleNumber}
             className="rating__star"
             src={starInactive}
-            alt="Étoile inactive"
+            alt="Inactive star"
           />
         );
       })}
