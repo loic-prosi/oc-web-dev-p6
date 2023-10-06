@@ -1,6 +1,6 @@
 # oc-web-dev-p6
 
-Plateforme de location d’appartements entre particuliers.
+Platform dedicated to flat rental between individuals.
 
 ## Available Scripts
 
